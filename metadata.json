@@ -1,0 +1,7 @@
+{
+  "name": "E-Commerce Detail Pro",
+  "description": "An AI-powered automated system for generating complete e-commerce product detail pages from a single product image, including visual style planning, copywriting, and multi-scene image generation.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
