@@ -1,5 +1,5 @@
 
-import { GoogleGenAI, Type, GenerateContentResponse } from "@google/genai";
+import { GoogleGenAI, Type, GenerateContentResponse, Chat } from "@google/genai";
 import { ProductAnalysis, StoryboardItem } from "../types";
 
 const API_KEY = process.env.API_KEY || "";
@@ -115,5 +115,14 @@ export class GeminiService {
     }
     
     throw new Error("Failed to generate image");
+  }
+
+  createChatSession(): Chat {
+    return this.ai.chats.create({
+      model: "gemini-3-pro-preview",
+      config: {
+        systemInstruction: "You are an expert E-Commerce Art Director and Marketing Consultant for the 'E-Commerce Detail Pro' app. Your job is to help users optimize their product detail pages, provide copywriting advice, suggest visual themes, and answer technical questions about product photography and AI generation. Keep responses concise and professional.",
+      }
+    });
   }
 }

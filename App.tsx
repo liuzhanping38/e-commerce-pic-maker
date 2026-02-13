@@ -7,6 +7,7 @@ import { UploadStage } from './components/UploadStage';
 import { AnalysisStage } from './components/AnalysisStage';
 import { StoryboardStage } from './components/StoryboardStage';
 import { GenerationStage } from './components/GenerationStage';
+import { ChatBot } from './components/ChatBot';
 
 const gemini = new GeminiService();
 
@@ -95,7 +96,7 @@ const App: React.FC = () => {
 
       <StepIndicator currentStep={step} />
 
-      <main className="container mx-auto mt-8">
+      <main className="container mx-auto mt-8 px-4">
         {step === GenerationStep.UPLOAD && (
           <UploadStage onNext={handleUploadNext} />
         )}
@@ -134,6 +135,9 @@ const App: React.FC = () => {
           </div>
         )}
       </main>
+
+      {/* Chat Bot Integration */}
+      <ChatBot />
     </div>
   );
 };
